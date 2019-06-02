@@ -21,7 +21,7 @@
     <link href="{% static "vendor/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
-    <link href="{% static "vendor/fontawesome-free/css/all.min.css" %}" rel="stylesheet" type="text/css">
+    <link href="{% static "vendor/fontawesome-free/css/fontawesome.min.css" %}" rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this template -->
     <link href="{% static "css/clean-blog.min.css" %}" rel="stylesheet">
@@ -44,8 +44,8 @@
         href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
         rel='stylesheet' type='text/css'>
 
-
     {% compress js %}
+    <script src="{% static "vendor/jquery/jquery.min.js" %}"></script>
     {% block extra_js %}{% endblock %}
     {% endcompress %}
 
@@ -74,95 +74,25 @@
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                {% page_menu "pages/menus/dropdown.html" %}
+                {% page_menu "pages/menus/primary.html" %}
             </div>
         </div>
     </nav>
 
-    <div class="container">
+         
 
-        {% nevercache %}
-        {% if messages %}
-        <div class="messages">
-            {% for message in messages %}
-            <div class="alert alert-dismissable alert-{{ message.tags }}" data-alert="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                {{ message }}
-            </div>
-            {% endfor %}
-        </div>
-        {% endif %}
-        {% endnevercache %}
+        <footer>
+            
+        </footer>
 
-        <h1>{% block title %}{% endblock %}</h1>
+        {% block footer_js %}
+        {% include "includes/footer_scripts.html" %}
+        <!-- Bootstrap core JavaScript -->
+        <script src="{% static "vendor/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
 
-        <ul class="breadcrumb">
-            {% spaceless %}
-            {% block breadcrumb_menu %}{% page_menu "pages/menus/breadcrumb.html" %}{% endblock %}
-            {% endspaceless %}
-        </ul>
-
-    </div>
-
-    <div class="container">
-        <div class="row">
-
-            <div class="col-md-2 left">
-                {% block left_panel %}
-                <div class="panel panel-default tree">{% page_menu "pages/menus/tree.html" %}</div>
-                {% endblock %}
-            </div>
-
-            <div class="col-md-7 middle">
-                {% block main %}{% endblock %}
-            </div>
-
-            <div class="col-md-3 right">
-                {% nevercache %}
-                {% include "includes/language_selector.html" %}
-                {% include "includes/user_panel.html" %}
-                {% endnevercache %}
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        {% block right_panel %}
-                        {% ifinstalled mezzanine.twitter %}
-                        {% include "twitter/tweets.html" %}
-                        {% endifinstalled %}
-                        {% endblock %}
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <footer>
-        <div class="container">
-            {% page_menu "pages/menus/footer.html" %}
-
-            <div class="row">
-                <p class="site-info text-center">
-                    {% trans "Powered by" %}
-                    <a href="http://mezzanine.jupo.org">Mezzanine</a>{% ifinstalled cartridge.shop %},
-                    <a href="http://cartridge.jupo.org">Cartridge</a>{% endifinstalled %}
-                    {% trans "and" %}
-                    <a href="http://www.djangoproject.com">Django</a>
-                    <span class="separator">|</span>
-                    {% trans "Theme by" %} <a target="_blank" href="http://getbootstrap.com">Bootstrap</a>
-                </p>
-            </div>
-        </div>
-    </footer>
-
-    {% block footer_js %}
-    {% include "includes/footer_scripts.html" %}
-    <!-- Bootstrap core JavaScript -->
-    <script src="{% static "vendor/jquery/jquery.min.js" %}"></script>
-    <script src="{% static "vendor/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
-
-    <!-- Custom scripts for this template -->
-    <script src="{% static "js/clean-blog.min.js" %}"></script>
-    {% endblock %}
+        <!-- Custom scripts for this template -->
+        <script src="{% static "js/clean-blog.min.js" %}"></script>
+        {% endblock %}
 
 </body>
 
