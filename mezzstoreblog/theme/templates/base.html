@@ -3,58 +3,55 @@
 {% load pages_tags mezzanine_tags i18n staticfiles %}
 
 <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
-    <meta name="description" content="{% block meta_description %}{% endblock %}">
-    <title>{% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} | {{ settings.SITE_TITLE }}{% endif %}
-    </title>
-    <link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
+<meta name="description" content="{% block meta_description %}{% endblock %}">
+<title>{% block meta_title %}{% endblock %}{% if settings.SITE_TITLE %} | {{ settings.SITE_TITLE }}{% endif %}
+</title>
+<link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
 
-    {% ifinstalled mezzanine.blog %}
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="{% url "blog_post_feed" "rss" %}">
-    <link rel="alternate" type="application/atom+xml" title="Atom" href="{% url "blog_post_feed" "atom" %}">
-    {% endifinstalled %}
+{% ifinstalled mezzanine.blog %}
+<link rel="alternate" type="application/rss+xml" title="RSS" href="{% url "blog_post_feed" "rss" %}">
+<link rel="alternate" type="application/atom+xml" title="Atom" href="{% url "blog_post_feed" "atom" %}">
+{% endifinstalled %}
 
-    {% compress css %}
-    <!-- Bootstrap core CSS -->
-    <link href="{% static "vendor/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+{% compress css %}
+<!-- Bootstrap core CSS -->
+<link href="{% static "vendor/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
 
-    <!-- Custom fonts for this template -->
-    <link href="{% static "vendor/fontawesome-free/css/fontawesome.min.css" %}" rel="stylesheet" type="text/css">
+<!-- Custom fonts for this template -->
+<link href="{% static "vendor/fontawesome-free/css/fontawesome.min.css" %}" rel="stylesheet" type="text/css">
 
-    <!-- Custom styles for this template -->
-    <link href="{% static "css/clean-blog.min.css" %}" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="{% static "css/clean-blog.min.css" %}" rel="stylesheet">
 
-    {% if LANGUAGE_BIDI %}
-    <link rel="stylesheet" href="{% static "css/bootstrap-rtl.css" %}">
-    {% endif %}
-    {% ifinstalled cartridge.shop %}
-    <link rel="stylesheet" href="{% static "css/cartridge.css" %}">
-    {% if LANGUAGE_BIDI %}
-    <link rel="stylesheet" href="{% static "css/cartridge.rtl.css" %}">
-    {% endif %}
-    {% endifinstalled %}
-    {% block extra_css %}{% endblock %}
-    {% endcompress %}
+{% if LANGUAGE_BIDI %}
+<link rel="stylesheet" href="{% static "css/bootstrap-rtl.css" %}">
+{% endif %}
+{% ifinstalled cartridge.shop %}
+<link rel="stylesheet" href="{% static "css/cartridge.css" %}">
+{% if LANGUAGE_BIDI %}
+<link rel="stylesheet" href="{% static "css/cartridge.rtl.css" %}">
+{% endif %}
+{% endifinstalled %}
+{% block extra_css %}{% endblock %}
+{% endcompress %}
 
-    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet'
-        type='text/css'>
-    <link
-        href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
-        rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
-    {% compress js %}
-    <script src="{% static "vendor/jquery/jquery.min.js" %}"></script>
-    {% block extra_js %}{% endblock %}
-    {% endcompress %}
+{% compress js %}
+<script src="{% static "vendor/jquery/jquery.min.js" %}"></script>
+{% block extra_js %}{% endblock %}
+{% endcompress %}
 
     <!--[if lt IE 9]>
 <script src="{% static "js/html5shiv.js" %}"></script>
 <script src="{% static "js/respond.min.js" %}"></script>
 <![endif]-->
 
-    {% block extra_head %}{% endblock %}
+{% block extra_head %}{% endblock %}
 </head>
 
 <body id="{% block body_id %}body{% endblock %}">
