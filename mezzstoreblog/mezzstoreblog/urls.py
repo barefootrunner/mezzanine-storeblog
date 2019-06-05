@@ -7,6 +7,7 @@ from django.views.i18n import set_language
 
 from mezzanine.core.views import direct_to_template
 from mezzanine.conf import settings
+# from mezzanine.pages.views import page
 
 # Uncomment to use blog as home page. See also urlpatterns section below.
 # from mezzanine.blog import views as blog_views
@@ -55,7 +56,7 @@ urlpatterns += [
     # should be used if you want to customize the homepage's template.
     # NOTE: Don't forget to import the view function too!
 
-    # url("^$", mezzanine.pages.views.page, {"slug": "/"}, name="home"),
+    # url("^$", page, {"slug": "/"}, name="home"),
 
     # HOMEPAGE FOR A BLOG-ONLY SITE
     # -----------------------------
