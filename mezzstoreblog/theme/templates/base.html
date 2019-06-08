@@ -30,6 +30,7 @@
 
     <!-- Custom styles for this template -->
     <link href="{% static "css/clean-blog.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/custom.css" %}" rel="stylesheet">
 
     {% if LANGUAGE_BIDI %}
     <link rel="stylesheet" href="{% static "css/bootstrap-rtl.css" %}">
@@ -77,8 +78,17 @@
         </div>
     </nav>
 
-    {% block main %}{% endblock %}
-
+    {% block pageheader %}{% endblock %}
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                {% block main %}{% endblock %}
+            </div>
+        </div>
+    </div>
+    <hr>
+    
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -115,16 +125,16 @@
             </div>
         </div>
     </footer>
-
+    
     {% block footer_js %}
     {% include "includes/footer_scripts.html" %}
     <!-- Bootstrap core JavaScript -->
     <script src="{% static "vendor/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
-
+    
     <!-- Custom scripts for this template -->
     <script src="{% static "js/clean-blog.min.js" %}"></script>
     {% endblock %}
-
-</body>
-
-</html>
+    
+    </body>
+    
+    </html>
