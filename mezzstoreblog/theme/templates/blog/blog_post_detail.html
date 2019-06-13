@@ -28,7 +28,7 @@
 {% endblock %}
 
 {% block blogposthero %}
-<header class="masthead" style="{% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}background-image: url('{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 1900 1267 %}'){% else %}background-image: url('{{ STATIC_URL }}img/post-bg.jpg{% endif %}">
+<header class="masthead" style="{% if settings.BLOG_USE_FEATURED_IMAGE and blog_post.featured_image %}background-image: url('{{ MEDIA_URL }}{% thumbnail blog_post.featured_image 1900 1267 %}'){% else %}background-image: url('{{ STATIC_URL }}img/post-bg.jpg'){% endif %}">
 <div class="overlay"></div>
 <div class="container">
     <div class="row">
